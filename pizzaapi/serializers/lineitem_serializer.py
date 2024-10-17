@@ -3,7 +3,7 @@ from .product_serializer import ProductSerializer
 from ..models.order_product import OrderProduct
 
 
-class OrderProductSerializer(serializers.ModelSerializer):
+class LineItemSerializer(serializers.ModelSerializer):
     product = ProductSerializer()
 
     class Meta:
