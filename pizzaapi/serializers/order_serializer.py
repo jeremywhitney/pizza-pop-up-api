@@ -1,15 +1,15 @@
 from rest_framework import serializers
-from ..models.order import Order
-from .order_product_serializer import OrderProductSerializer
+from .lineitem_serializer import LineItemSerializer
 from .user_serializer import ProfileSerializer
 from .payment_serializer import PaymentSerializer
+from ..models.order import Order
 
 
 class OrderSerializer(serializers.ModelSerializer):
     customer = ProfileSerializer(read_only=True)
     employee = ProfileSerializer(read_only=True)
     payment = PaymentSerializer(read_only=True)
-    products = OrderProductSerializer(source="orderproduct_set", many=True)
+    products = LineItemSerializer(source="orderproduct_set", many=True)
     total_price = serializers.SerializerMethodField()
 
     class Meta:

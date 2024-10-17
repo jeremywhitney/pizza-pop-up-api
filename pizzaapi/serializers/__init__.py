@@ -1,5 +1,5 @@
 from .category_serializer import CategorySerializer
-from .order_product_serializer import OrderProductSerializer
+from .lineitem_serializer import LineItemSerializer
 from .order_serializer import OrderSerializer
 from .payment_serializer import PaymentSerializer
 from .product_serializer import ProductSerializer
