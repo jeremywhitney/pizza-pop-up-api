@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from ..models.order import Order
 from .order_product_serializer import OrderProductSerializer
 from .user_serializer import ProfileSerializer
 from .payment_serializer import PaymentSerializer
+from ..models.order import Order
 
 
 class OrderSerializer(serializers.ModelSerializer):
