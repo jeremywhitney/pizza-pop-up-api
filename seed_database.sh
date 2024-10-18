@@ -7,4 +7,5 @@ python3 manage.py makemigrations pizzaapi
 python3 manage.py migrate pizzaapi
 python3 manage.py loaddata categories
 python3 manage.py loaddata payments
+python3 manage.py loaddata products
 

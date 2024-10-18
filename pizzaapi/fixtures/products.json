@@ -1,0 +1,218 @@
+[
+  {
+    "model": "pizzaapi.product",
+    "pk": 1,
+    "fields": {
+      "name": "Tomato Pie",
+      "price": 18.0,
+      "description": "sauce, olive oil, garlic, za'atar, aleppo, parm, pecorino",
+      "created_date": "2024-10-18",
+      "category": 2,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 2,
+    "fields": {
+      "name": "Mozzarella Pie",
+      "price": 18.0,
+      "description": "sauce, olive oil, garlic, za'atar, aleppo, parm, pecorino, mozzarella",
+      "created_date": "2024-10-18",
+      "category": 2,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 3,
+    "fields": {
+      "name": "Potato & Pancetta Pie",
+      "price": 22.0,
+      "description": "olive oil, parmesan & pecorino cream, pancetta, potato, basil, rosemary oil",
+      "created_date": "2024-10-18",
+      "category": 2,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 4,
+    "fields": {
+      "name": "Sausage & Scape Pie",
+      "price": 21.0,
+      "description": "olive oil, parmesan & pecorino white sauce, hot italian sausage, preserved garlic scapes, fresh green aleppo pepper, fresh za'atar, lemon",
+      "created_date": "2024-10-18",
+      "category": 2,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 5,
+    "fields": {
+      "name": "Buffalo Wings",
+      "price": 16.0,
+      "description": "buffalo sauce, blue cheese, celery, carrots",
+      "created_date": "2024-10-18",
+      "category": 3,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 6,
+    "fields": {
+      "name": "Baba Ganoush",
+      "price": 14.0,
+      "description": "spring crudite, schmaltz roasted bread",
+      "created_date": "2024-10-18",
+      "category": 3,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 7,
+    "fields": {
+      "name": "Garlic Bread",
+      "price": 14.0,
+      "description": "schmaltz garlic confit, parm, sauce on side",
+      "created_date": "2024-10-18",
+      "category": 3,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 8,
+    "fields": {
+      "name": "Tinned Fish",
+      "price": 16.0,
+      "description": "potato chips, labneh, za'atar urfa chili crisp, giardiniera",
+      "created_date": "2024-10-18",
+      "category": 3,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 9,
+    "fields": {
+      "name": "Garden Salad",
+      "price": 14.0,
+      "description": "arugula, romaine, spring carrots, tomato, radish, cucumber, vinaigrette",
+      "created_date": "2024-10-18",
+      "category": 3,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 10,
+    "fields": {
+      "name": "Pepperoni",
+      "price": 3.0,
+      "description": "",
+      "created_date": "2024-10-18",
+      "category": 5,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 11,
+    "fields": {
+      "name": "Anchovy",
+      "price": 3.0,
+      "description": "",
+      "created_date": "2024-10-18",
+      "category": 5,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 12,
+    "fields": {
+      "name": "Pancetta",
+      "price": 3.0,
+      "description": "",
+      "created_date": "2024-10-18",
+      "category": 5,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 13,
+    "fields": {
+      "name": "Hot Italian Sausage",
+      "price": 3.0,
+      "description": "",
+      "created_date": "2024-10-18",
+      "category": 5,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 14,
+    "fields": {
+      "name": "Peppers & Onions",
+      "price": 3.0,
+      "description": "",
+      "created_date": "2024-10-18",
+      "category": 5,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 15,
+    "fields": {
+      "name": "Garden Giardeniera",
+      "price": 3.0,
+      "description": "mixed pickled veg from the garden: spring carrots, white icicle radish, garlic scape, french breakfast radish, garlic flower buds, 2022 pepperoncini, cherry belle radish seed pod",
+      "created_date": "2024-10-18",
+      "category": 4,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 16,
+    "fields": {
+      "name": "Marinara",
+      "price": 1.0,
+      "description": "house marinara made with fresh tomatoes from the garden",
+      "created_date": "2024-10-18",
+      "category": 4,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 17,
+    "fields": {
+      "name": "Foxon Park Soda",
+      "price": 2.0,
+      "description": "Flavors: Cream, Gassosa, Ginger Ale, Grape, Kola, Orange, White Birch, Root Beer",
+      "created_date": "2024-10-18",
+      "category": 1,
+      "image_path": null
+    }
+  },
+  {
+    "model": "pizzaapi.product",
+    "pk": 18,
+    "fields": {
+      "name": "Yazoo Gerst",
+      "price": 8.0,
+      "description": "12oz bottle",
+      "created_date": "2024-10-18",
+      "category": 1,
+      "image_path": null
+    }
+  }
+]
