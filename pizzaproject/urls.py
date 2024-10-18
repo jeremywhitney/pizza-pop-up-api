@@ -13,6 +13,6 @@ router.register(r"users", UserViewSet, "user")
 
 urlpatterns = [
     path("", include(router.urls)),
-    path("login/", LoginViewSet.as_view(), name="login"),
-    path("register/", RegisterViewSet.as_view(), name="register"),
+    path("login", LoginViewSet.as_view(), name="login"),
+    path("register", RegisterViewSet.as_view(), name="register"),
 ]
