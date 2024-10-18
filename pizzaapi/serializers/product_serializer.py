@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models.product import Product
+from ..models import PizzaTopping, Product
 from .category_serializer import CategorySerializer
 
 
@@ -13,8 +13,29 @@ class ProductSerializer(serializers.ModelSerializer):
             "name",
             "price",
             "description",
-            "created_date",
             "category",
             "image_path",
         ]
-        read_only_fields = ["id", "created_date"]
+
+
+class ToppingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ["id", "name", "price"]
+
+
+class PizzaToppingSerializer(serializers.ModelSerializer):
+    topping = ToppingSerializer()
+
+    class Meta:
+        model = PizzaTopping
+        fields = ["topping"]
+
+
+class PizzaWithToppingsSerializer(ProductSerializer):
+    toppings = PizzaToppingSerializer(
+        source="pizza_toppings", many=True, read_only=True
+    )
+
+    class Meta(ProductSerializer.Meta):
+        fields = ProductSerializer.Meta.fields + ["toppings"]
