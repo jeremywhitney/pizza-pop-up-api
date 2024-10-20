@@ -11,11 +11,23 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class ProfileSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
+    id = serializers.IntegerField(source="user.id")
+    username = serializers.CharField(source="user.username")
+    first_name = serializers.CharField(source="user.first_name")
+    last_name = serializers.CharField(source="user.last_name")
+    email = serializers.CharField(source="user.email")
 
     class Meta:
         model = Profile
-        fields = ["user", "phone_number", "address"]
+        fields = [
+            "id",
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "phone_number",
+            "address",
+        ]
 
 
 class EmployeeProfileSerializer(serializers.ModelSerializer):
@@ -24,3 +36,12 @@ class EmployeeProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = EmployeeProfile
         fields = ["profile", "position", "rate"]
+
+
+class EmployeeOrderSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(source="user.id")
+    username = serializers.CharField(source="user.username")
+
+    class Meta:
+        model = Profile
+        fields = ["id", "username"]

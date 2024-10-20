@@ -1,8 +1,12 @@
 from rest_framework import serializers
-from ..models.product import Product
+from ..models import PizzaTopping, Product
+from .category_serializer import CategorySerializer
 
 
+# Base product details
 class ProductSerializer(serializers.ModelSerializer):
+    category = CategorySerializer(read_only=True)
+
     class Meta:
         model = Product
         fields = [
@@ -10,8 +14,29 @@ class ProductSerializer(serializers.ModelSerializer):
             "name",
             "price",
             "description",
-            "created_date",
             "category",
             "image_path",
         ]
-        read_only_fields = ["id", "created_date"]
+
+class OrderProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['id', 'name', 'price']
+
+
+# Simplified 'Product' details for toppings
+class ToppingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ["id", "name", "price"]
+
+
+# Associates toppings with an 'OrderProduct'
+class PizzaToppingSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(source="topping.id")
+    name = serializers.CharField(source="topping.name")
+    price = serializers.FloatField(source="topping.price")
+
+    class Meta:
+        model = PizzaTopping
+        fields = ["id", "name", "price"]

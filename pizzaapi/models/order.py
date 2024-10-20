@@ -41,4 +41,11 @@ class Order(models.Model):
         return self.payment is None and self.status == "PENDING"
 
     def total_price(self):
-        return sum(op.product.price * op.quantity for op in self.orderproduct_set.all())
+        total = 0
+        for op in self.orderproduct_set.all():
+            # Base product price * quantity
+            product_total = op.product.price * op.quantity
+            # Add topping prices
+            topping_total = sum(pt.topping.price for pt in op.pizza_toppings.all())
+            total += product_total + (topping_total * op.quantity)
+        return total
