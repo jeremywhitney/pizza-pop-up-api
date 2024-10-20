@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .product_serializer import ProductSerializer, PizzaToppingSerializer
+from .product_serializer import OrderProductSerializer, PizzaToppingSerializer
 from ..models.order_product import OrderProduct
 
 
@@ -14,4 +14,4 @@ class LineItemSerializer(serializers.ModelSerializer):
         fields = ["product", "quantity", "toppings"]
 
     def get_product(self, obj):
-        return ProductSerializer(obj.product).data
+        return OrderProductSerializer(obj.product).data

@@ -18,6 +18,11 @@ class ProductSerializer(serializers.ModelSerializer):
             "image_path",
         ]
 
+class OrderProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['id', 'name', 'price']
+
 
 # Simplified 'Product' details for toppings
 class ToppingSerializer(serializers.ModelSerializer):
@@ -28,8 +33,10 @@ class ToppingSerializer(serializers.ModelSerializer):
 
 # Associates toppings with an 'OrderProduct'
 class PizzaToppingSerializer(serializers.ModelSerializer):
-    topping = ToppingSerializer()
+    id = serializers.IntegerField(source="topping.id")
+    name = serializers.CharField(source="topping.name")
+    price = serializers.FloatField(source="topping.price")
 
     class Meta:
         model = PizzaTopping
-        fields = ["topping"]
+        fields = ["id", "name", "price"]
