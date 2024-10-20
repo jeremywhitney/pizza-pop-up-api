@@ -6,6 +6,5 @@ from .product_serializer import (
     ProductSerializer,
     ToppingSerializer,
     PizzaToppingSerializer,
-    PizzaWithToppingsSerializer,
 )
 from .user_serializer import ProfileSerializer, EmployeeProfileSerializer

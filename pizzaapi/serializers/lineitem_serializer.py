@@ -1,16 +1,17 @@
 from rest_framework import serializers
-from .product_serializer import ProductSerializer, PizzaWithToppingsSerializer
+from .product_serializer import ProductSerializer, PizzaToppingSerializer
 from ..models.order_product import OrderProduct
 
 
 class LineItemSerializer(serializers.ModelSerializer):
-    product = ProductSerializer()
+    product = serializers.SerializerMethodField()
+    toppings = PizzaToppingSerializer(
+        source="pizza_toppings", many=True, read_only=True
+    )
 
     class Meta:
         model = OrderProduct
-        fields = ["product", "quantity"]
+        fields = ["product", "quantity", "toppings"]
 
     def get_product(self, obj):
-        if obj.product.category_id == 2:  # If product is a pizza
-            return PizzaWithToppingsSerializer(obj.product).data
         return ProductSerializer(obj.product).data

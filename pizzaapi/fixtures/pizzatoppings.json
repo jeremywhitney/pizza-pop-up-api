@@ -3,7 +3,7 @@
     "model": "pizzaapi.pizzatopping",
     "pk": 1,
     "fields": {
-      "pizza": 1,
+      "order_product": 1,
       "topping": 10
     }
   },
@@ -11,7 +11,7 @@
     "model": "pizzaapi.pizzatopping",
     "pk": 2,
     "fields": {
-      "pizza": 3,
+      "order_product": 3,
       "topping": 11
     }
   },
@@ -19,7 +19,7 @@
     "model": "pizzaapi.pizzatopping",
     "pk": 3,
     "fields": {
-      "pizza": 4,
+      "order_product": 4,
       "topping": 12
     }
   },
@@ -27,7 +27,7 @@
     "model": "pizzaapi.pizzatopping",
     "pk": 4,
     "fields": {
-      "pizza": 1,
+      "order_product": 1,
       "topping": 13
     }
   },
@@ -35,7 +35,7 @@
     "model": "pizzaapi.pizzatopping",
     "pk": 5,
     "fields": {
-      "pizza": 4,
+      "order_product": 4,
       "topping": 14
     }
   }
