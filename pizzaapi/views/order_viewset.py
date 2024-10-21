@@ -2,14 +2,14 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from ..models.order import Order
-from ..permissions.order_permissions import OrderPermission
+# from ..permissions.order_permissions import OrderPermission
 from ..serializers.order_serializer import OrderSerializer
 
 
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-    permission_classes = [OrderPermission]
+    # permission_classes = [OrderPermission]
 
     # Override get_queryset to filter by cart or orders
     def get_queryset(self):
