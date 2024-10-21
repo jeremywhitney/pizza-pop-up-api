@@ -9,6 +9,7 @@ from .product_serializer import (
     PizzaToppingSerializer,
 )
 from .user_serializer import (
+    UserSerializer,
     ProfileSerializer,
     EmployeeProfileSerializer,
     EmployeeOrderSerializer,

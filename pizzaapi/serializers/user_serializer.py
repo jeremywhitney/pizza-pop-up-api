@@ -16,6 +16,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(source="user.first_name")
     last_name = serializers.CharField(source="user.last_name")
     email = serializers.CharField(source="user.email")
+    is_staff = serializers.CharField(source="user.is_staff")
 
     class Meta:
         model = Profile
@@ -25,17 +26,17 @@ class ProfileSerializer(serializers.ModelSerializer):
             "first_name",
             "last_name",
             "email",
+            "is_staff",
             "phone_number",
             "address",
         ]
 
 
 class EmployeeProfileSerializer(serializers.ModelSerializer):
-    profile = ProfileSerializer(read_only=True)
 
     class Meta:
         model = EmployeeProfile
-        fields = ["profile", "position", "rate"]
+        fields = ["position", "rate"]
 
 
 class EmployeeOrderSerializer(serializers.ModelSerializer):
