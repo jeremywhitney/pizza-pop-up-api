@@ -18,14 +18,8 @@ class ProductSerializer(serializers.ModelSerializer):
             "image_path",
         ]
 
+
 class OrderProductSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product
-        fields = ['id', 'name', 'price']
-
-
-# Simplified 'Product' details for toppings
-class ToppingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ["id", "name", "price"]

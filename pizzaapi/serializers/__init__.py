@@ -5,7 +5,6 @@ from .payment_serializer import PaymentSerializer, OrderPaymentSerializer
 from .product_serializer import (
     ProductSerializer,
     OrderProductSerializer,
-    ToppingSerializer,
     PizzaToppingSerializer,
 )
 from .user_serializer import (

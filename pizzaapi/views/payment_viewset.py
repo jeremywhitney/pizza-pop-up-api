@@ -1,13 +1,11 @@
 from rest_framework import viewsets
 from ..models.payment import Payment
-# from ..permissions.order_permissions import OrderPermission
 from ..serializers.payment_serializer import PaymentSerializer
 
 
 class PaymentViewSet(viewsets.ModelViewSet):
     queryset = Payment.objects.all()
     serializer_class = PaymentSerializer
-    # permission_classes = [OrderPermission]
 
     def get_queryset(self):
         user = self.request.user

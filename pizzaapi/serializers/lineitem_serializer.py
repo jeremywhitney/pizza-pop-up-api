@@ -1,29 +1,23 @@
 from rest_framework import serializers
-from .product_serializer import (
-    OrderProductSerializer,
-    PizzaToppingSerializer,
-)
 from ..models.order_product import OrderProduct
+from .product_serializer import PizzaToppingSerializer
 
 
 class LineItemSerializer(serializers.ModelSerializer):
-    product = serializers.SerializerMethodField()
-    # product = serializers.IntegerField()
+    id = serializers.IntegerField(source="product.id", read_only=True)
+    name = serializers.CharField(source="product.name", read_only=True)
+    price = serializers.DecimalField(
+        source="product.price", max_digits=10, decimal_places=2, read_only=True
+    )
     toppings = PizzaToppingSerializer(
         source="pizza_toppings", many=True, read_only=True
     )
 
     class Meta:
         model = OrderProduct
-        fields = ["product", "quantity", "toppings"]
-
-    def get_product(self, obj):
-        return OrderProductSerializer(obj.product).data
+        fields = ["id", "name", "price", "quantity", "toppings"]
 
     def to_representation(self, instance):
-        """Customize output representation to include product details."""
+        """Customize the output to include flattened product info and toppings"""
         representation = super().to_representation(instance)
-        representation["product"] = OrderProductSerializer(
-            instance.product
-        ).data  # Add product details
         return representation
