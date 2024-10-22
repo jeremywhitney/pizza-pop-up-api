@@ -1,0 +1,11 @@
+[
+  {
+    "model": "pizzaapi.employeeprofile",
+    "pk": 1,
+    "fields": {
+      "profile": 5,
+      "position": "Owner",
+      "rate": 30.0
+    }
+  }
+]
