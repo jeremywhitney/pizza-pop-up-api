@@ -10,34 +10,32 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    # Override retrieve to include employee data for staff users
-    def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-
+    def get_profile_data(self, user):
         # Fetch customer profile
         try:
-            profile = Profile.objects.get(user=instance)
+            profile = Profile.objects.get(user=user)
             profile_serializer = ProfileSerializer(profile)
             profile_data = profile_serializer.data
         except Profile.DoesNotExist:
             profile_data = None
 
-        # If user is staff, fetch employee profile and add it to the profile data
-        if instance.is_staff and profile_data:
+        # If the user is staff, fetch the employee profile
+        if user.is_staff and profile_data:
             try:
                 employee_profile = EmployeeProfile.objects.get(profile=profile)
                 employee_serializer = EmployeeProfileSerializer(employee_profile)
-                # Add employee fields to profile data
+                # Add employee fields to the profile data
                 profile_data.update(employee_serializer.data)
             except EmployeeProfile.DoesNotExist:
                 pass
 
-        # Combine data into a custom response
-        return Response(
-            {
-                "profile": profile_data if profile_data else None,
-            }
-        )
+        return profile_data
+
+    # Override retrieve to use the helper method
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        profile_data = self.get_profile_data(instance)
+        return Response({"profile": profile_data})
 
     @action(detail=False, methods=["get"], url_path="profile")
     def profile(self, request):

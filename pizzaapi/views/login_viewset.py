@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
+from .user_viewset import UserViewSet
 
 
 class LoginViewSet(APIView):
@@ -10,11 +11,13 @@ class LoginViewSet(APIView):
         username = request.data.get("username")
         password = request.data.get("password")
         user = authenticate(username=username, password=password)
+
         if user:
             token, _ = Token.objects.get_or_create(user=user)
-            return Response(
-                {"token": token.key, "user_id": user.id, "is_staff": user.is_staff}
-            )
+            profile_data = UserViewSet().get_profile_data(user)
+
+            return Response({"token": token.key, "profile": profile_data})
+
         return Response(
-            {"error": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST
+            {"message": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST
         )
