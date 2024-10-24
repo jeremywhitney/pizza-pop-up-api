@@ -1,6 +1,5 @@
 from rest_framework import status
 from rest_framework.authtoken.models import Token
-from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from ..models import EmployeeProfile
@@ -12,7 +11,6 @@ from ..serializers.user_serializer import (
 
 
 class RegisterViewSet(APIView):
-    permission_classes = [AllowAny]
 
     def post(self, request):
         user_serializer = UserSerializer(data=request.data)

@@ -11,12 +11,12 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class ProfileSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(source="user.id")
+    id = serializers.IntegerField(source="user.id", read_only=True)
     username = serializers.CharField(source="user.username")
     first_name = serializers.CharField(source="user.first_name")
     last_name = serializers.CharField(source="user.last_name")
     email = serializers.CharField(source="user.email")
-    is_staff = serializers.CharField(source="user.is_staff")
+    is_staff = serializers.BooleanField(source="user.is_staff", read_only=True)
 
     class Meta:
         model = Profile
