@@ -6,9 +6,7 @@ from .product_serializer import PizzaToppingSerializer
 class LineItemSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(source="product.id", read_only=True)
     name = serializers.CharField(source="product.name", read_only=True)
-    price = serializers.DecimalField(
-        source="product.price", max_digits=10, decimal_places=2, read_only=True
-    )
+    price = serializers.FloatField(source="product.price", read_only=True)
     toppings = PizzaToppingSerializer(
         source="pizza_toppings", many=True, read_only=True
     )
