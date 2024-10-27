@@ -58,3 +58,39 @@ class UserViewSet(viewsets.ModelViewSet):
                 "orders": orders_serializer.data,
             }
         )
+
+    @action(detail=False, methods=["patch"], url_path="profile")
+    def update_profile(self, request):
+        user = request.user
+        profile = Profile.objects.get(user=user)
+
+        # Separate user and profile fields
+        user_fields = ["username", "first_name", "last_name", "email"]
+        profile_fields = ["phone_number", "address"]
+
+        # Update User model fields
+        user_data = {
+            key: request.data[key] for key in user_fields if key in request.data
+        }
+        if user_data:
+            user_serializer = UserSerializer(user, data=user_data, partial=True)
+            if user_serializer.is_valid():
+                user_serializer.save()
+            else:
+                return Response(user_serializer.errors, status=400)
+
+        # Update Profile model fields
+        profile_data = {
+            key: request.data[key] for key in profile_fields if key in request.data
+        }
+        if profile_data:
+            profile_serializer = ProfileSerializer(
+                profile, data=profile_data, partial=True
+            )
+            if profile_serializer.is_valid():
+                profile_serializer.save()
+            else:
+                return Response(profile_serializer.errors, status=400)
+
+        # Return updated profile data
+        return self.profile(request)
