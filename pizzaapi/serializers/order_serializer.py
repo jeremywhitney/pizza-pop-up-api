@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .lineitem_serializer import LineItemSerializer
 from .user_serializer import ProfileSerializer, EmployeeOrderSerializer
 from .payment_serializer import OrderPaymentSerializer
-from ..models import Order, OrderProduct, PizzaTopping
+from ..models import Order, OrderProduct, Payment, PizzaTopping
 
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -31,8 +31,17 @@ class OrderSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         products_data = self.initial_data.get("products")
+        payment_id = self.initial_data.get("payment")
         request = self.context.get("request")
         validated_data["customer"] = request.user.profile
+
+        # Handle payment
+        if payment_id:
+            try:
+                payment = Payment.objects.get(id=payment_id)
+                validated_data["payment"] = payment
+            except Payment.DoesNotExist:
+                raise serializers.ValidationError("Invalid payment method")
 
         # Remove the nested orderproduct_set from validated_data if present
         validated_data.pop("orderproduct_set", None)
@@ -40,17 +49,16 @@ class OrderSerializer(serializers.ModelSerializer):
         # Create the order instance
         order = Order.objects.create(**validated_data)
 
-        # Process each product in products_data
+        # Process products...
         for product_data in products_data:
-            product_id = product_data.pop("id")  # Using id field for product
+            product_id = product_data.pop("id")
             quantity = product_data.pop("quantity")
 
-            # Create the OrderProduct
             order_product = OrderProduct.objects.create(
                 order=order, product_id=product_id, quantity=quantity
             )
 
-            # Create any pizza toppings for this order product
+            # Handle toppings...
             toppings_data = product_data.get("toppings", [])
             for topping in toppings_data:
                 PizzaTopping.objects.create(
