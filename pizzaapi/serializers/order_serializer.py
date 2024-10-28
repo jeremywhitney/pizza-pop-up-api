@@ -77,12 +77,6 @@ class OrderSerializer(serializers.ModelSerializer):
             payment_id = payment_data.get("id")
             instance.payment_id = payment_id  # Update payment relationship
 
-        # # Handle employee updates
-        # employee_data = self.initial_data.get("employee")
-        # if employee_data:
-        #     employee_id = employee_data.get("id")
-        #     instance.employee_id = employee_id  # Update employee relationship
-
         # Handle product updates (order products)
         products_data = self.initial_data.get("products")
         if products_data:
