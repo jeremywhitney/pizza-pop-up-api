@@ -18,6 +18,42 @@ class OrderViewSet(viewsets.ModelViewSet):
         # Regular users only see their orders
         return Order.objects.filter(customer__user=user)
 
+    def update(self, request, *args, **kwargs):
+        order = self.get_object()
+
+        # If status is being changed
+        if "status" in request.data:
+            if not request.user.is_staff:
+                return Response(
+                    {"error": "Only staff can update order status"}, status=403
+                )
+
+            new_status = request.data["status"]
+            current_status = order.status
+
+            # Validate status transitions
+            if current_status == "PENDING" and new_status != "IN_PROCESS":
+                return Response(
+                    {"error": "Pending orders can only be changed to In Process"},
+                    status=400,
+                )
+            elif current_status == "IN_PROCESS" and new_status != "COMPLETED":
+                return Response(
+                    {"error": "In Process orders can only be changed to Completed"},
+                    status=400,
+                )
+            elif current_status == "COMPLETED":
+                return Response(
+                    {"error": "Completed orders cannot be changed"}, status=400
+                )
+
+            # If changing to IN_PROCESS, set the employee
+            if new_status == "IN_PROCESS":
+                order.employee = request.user.profile
+                order.save()
+
+        return super().update(request, *args, **kwargs)
+
     # Action to fetch completed orders (those with payments and a status)
     @action(detail=False, methods=["get"], url_path="completed")
     def get_completed_orders(self, request):
