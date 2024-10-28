@@ -4,7 +4,7 @@ from ..models.payment import Payment
 
 
 class PaymentSerializer(serializers.ModelSerializer):
-    customer = ProfileSerializer()
+    customer = ProfileSerializer(read_only=True)
 
     class Meta:
         model = Payment
@@ -16,6 +16,12 @@ class PaymentSerializer(serializers.ModelSerializer):
             "expiration_date",
             "create_date",
         ]
+        read_only_fields = ["id", "create_date"]
+
+    def create(self, validated_data):
+        request = self.context.get("request")
+        validated_data["customer"] = request.user.profile
+        return super().create(validated_data)
 
 
 class OrderPaymentSerializer(serializers.ModelSerializer):
