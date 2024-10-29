@@ -14,6 +14,7 @@ class ProductSerializer(serializers.ModelSerializer):
             "description",
             "category",
             "image_path",
+            "is_available"
         ]
 
     def to_representation(self, instance):
