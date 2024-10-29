@@ -5,8 +5,12 @@ from ..serializers.product_serializer import ProductSerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
     serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return Product.objects.all()
+        return Product.objects.filter(is_available=True)
 
     def create(self, request, *args, **kwargs):
         if not request.user.is_staff:

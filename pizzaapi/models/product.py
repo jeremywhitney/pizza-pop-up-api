@@ -15,6 +15,7 @@ class Product(models.Model):
         max_length=None,
         null=True,
     )
+    is_available = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.name)
