@@ -39,17 +39,23 @@ class UserViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=["get"], url_path="profile")
     def profile(self, request):
-        # Get the logged-in user
         instance = request.user
-
-        # Fetch profile, payment methods, and orders
         profile = Profile.objects.get(user=instance)
-        payments = Payment.objects.filter(customer=profile)
-        orders = Order.objects.filter(customer=profile)
 
+        # If user is staff, return employee profile format
+        if instance.is_staff:
+            # Get base profile data
+            profile_data = self.get_profile_data(instance)
+            return Response({"profile": profile_data})
+
+        # For customers, return full data including payments and orders
         profile_serializer = ProfileSerializer(profile)
-        payments_serializer = PaymentSerializer(payments, many=True)
-        orders_serializer = OrderSerializer(orders, many=True)
+        payments_serializer = PaymentSerializer(
+            Payment.objects.filter(customer=profile), many=True
+        )
+        orders_serializer = OrderSerializer(
+            Order.objects.filter(customer=profile), many=True
+        )
 
         return Response(
             {

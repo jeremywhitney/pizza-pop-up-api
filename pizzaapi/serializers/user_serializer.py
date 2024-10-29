@@ -17,6 +17,8 @@ class ProfileSerializer(serializers.ModelSerializer):
     last_name = serializers.CharField(source="user.last_name")
     email = serializers.CharField(source="user.email")
     is_staff = serializers.BooleanField(source="user.is_staff", read_only=True)
+    position = serializers.CharField(source="employeeprofile.position", read_only=True)
+    rate = serializers.FloatField(source="employeeprofile.rate", read_only=True)
 
     class Meta:
         model = Profile
@@ -29,7 +31,20 @@ class ProfileSerializer(serializers.ModelSerializer):
             "is_staff",
             "phone_number",
             "address",
+            "position",
+            "rate",
         ]
+
+    def to_representation(self, instance):
+        """Customize the output based on user type"""
+        ret = super().to_representation(instance)
+
+        if not instance.user.is_staff:
+            # Remove employee-specific fields for non-staff users
+            ret.pop("position", None)
+            ret.pop("rate", None)
+
+        return ret
 
 
 class EmployeeProfileSerializer(serializers.ModelSerializer):

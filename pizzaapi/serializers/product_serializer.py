@@ -3,9 +3,7 @@ from ..models import PizzaTopping, Product
 from .category_serializer import CategorySerializer
 
 
-# Base product details
 class ProductSerializer(serializers.ModelSerializer):
-    category = CategorySerializer(read_only=True)
 
     class Meta:
         model = Product
@@ -17,6 +15,18 @@ class ProductSerializer(serializers.ModelSerializer):
             "category",
             "image_path",
         ]
+
+    def to_representation(self, instance):
+        """When reading, return the full category object"""
+        ret = super().to_representation(instance)
+        ret["category"] = CategorySerializer(instance.category).data
+        return ret
+
+    def to_internal_value(self, data):
+        """When writing, expect the category as an ID"""
+        if isinstance(data.get("category"), dict):
+            data["category"] = data["category"].get("id")
+        return super().to_internal_value(data)
 
 
 class OrderProductSerializer(serializers.ModelSerializer):
