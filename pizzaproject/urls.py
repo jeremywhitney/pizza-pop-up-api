@@ -1,4 +1,6 @@
 from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
 from rest_framework import routers
 from pizzaapi.views import *
 
@@ -20,4 +22,4 @@ urlpatterns = [
         UserViewSet.as_view({"get": "profile", "patch": "update_profile"}),
         name="profile",
     ),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
