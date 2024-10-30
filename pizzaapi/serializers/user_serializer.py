@@ -7,7 +7,15 @@ from ..models.employee_profile import EmployeeProfile
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "username", "first_name", "last_name", "email", "is_staff"]
+        fields = [
+            "id",
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "is_staff",
+            "date_joined",
+        ]
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -19,6 +27,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     is_staff = serializers.BooleanField(source="user.is_staff", read_only=True)
     position = serializers.CharField(source="employeeprofile.position", read_only=True)
     rate = serializers.FloatField(source="employeeprofile.rate", read_only=True)
+    date_joined = serializers.DateTimeField(source="user.date_joined", format="%m-%d-%Y", read_only=True)
 
     class Meta:
         model = Profile
@@ -33,6 +42,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             "address",
             "position",
             "rate",
+            "date_joined",
         ]
 
     def to_representation(self, instance):
@@ -43,6 +53,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             # Remove employee-specific fields for non-staff users
             ret.pop("position", None)
             ret.pop("rate", None)
+            ret.pop("date_joined", None)
 
         return ret
 
