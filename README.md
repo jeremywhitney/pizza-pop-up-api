@@ -130,6 +130,7 @@ Follow this tutorial to see a complete flow from user registration to order proc
 
 ### 1. Register New Customer
 POST /register
+```json
 {
    "username": "johndoe",
    "password": "securepass123",
@@ -139,13 +140,16 @@ POST /register
    "phone_number": "555-0123",
    "address": "123 Main St"
 }
+```
 
 Response:
+```json
 {
    "token": "9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b",
    "user_id": 1,
    "is_staff": false
 }
+```
 
 ### 2. View Profile Information
 
@@ -153,6 +157,7 @@ Response:
 GET /profile
 
 Response:
+```json
 {
    "profile": {
        "id": 1,
@@ -167,11 +172,13 @@ Response:
    "payments": [],
    "orders": []
 }
+```
 
 #### Employee Profile Example
 GET /profile
 
 Response:
+```json
 {
    "profile": {
        "id": 2,
@@ -187,16 +194,20 @@ Response:
        "date_joined": "11-04-2024"
    }
 }
+```
 
 ### 3. Add Payment Method
 POST /payments
+```json
 {
    "merchant_name": "VISA",
    "account_number": "4111111111111111",
    "expiration_date": "2025-12"
 }
+```
 
 Response:
+```json
 {
    "id": 1,
    "merchant_name": "VISA",
@@ -214,9 +225,11 @@ Response:
    "expiration_date": "2025-12",
    "create_date": "2024-11-04T10:30:00Z"
 }
+```
 
 ### 4. Create New Order
 POST /orders
+```json
 {
    "payment": 1,
    "products": [
@@ -237,8 +250,10 @@ POST /orders
        }
    ]
 }
+```
 
 Response:
+```json
 {
    "id": 1,
    "customer": {
@@ -288,14 +303,18 @@ Response:
    },
    "total_price": 31.97
 }
+```
 
 ### 5. Update Order Status (Staff Only)
 PATCH /orders/1
+```json
 {
    "status": "IN_PROCESS"
 }
+```
 
 Response:
+```json
 {
    "id": 1,
    "customer": {
@@ -349,3 +368,4 @@ Response:
    },
    "total_price": 31.97
 }
+```
