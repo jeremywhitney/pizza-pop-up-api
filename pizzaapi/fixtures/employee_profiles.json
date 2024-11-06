@@ -4,7 +4,16 @@
     "pk": 1,
     "fields": {
       "profile": 5,
-      "position": "Owner",
+      "position": "Staff",
+      "rate": 30.0
+    }
+  },
+  {
+    "model": "pizzaapi.employeeprofile",
+    "pk": 2,
+    "fields": {
+      "profile": 6,
+      "position": "Administrator",
       "rate": 30.0
     }
   }

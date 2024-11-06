@@ -196,5 +196,41 @@
       "product": 2,
       "quantity": 1
     }
+  },
+  {
+    "model": "pizzaapi.orderproduct",
+    "pk": 23,
+    "fields": {
+      "order": 10,
+      "product": 2,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "pizzaapi.orderproduct",
+    "pk": 24,
+    "fields": {
+      "order": 10,
+      "product": 15,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "pizzaapi.orderproduct",
+    "pk": 25,
+    "fields": {
+      "order": 11,
+      "product": 1,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "pizzaapi.orderproduct",
+    "pk": 26,
+    "fields": {
+      "order": 11,
+      "product": 17,
+      "quantity": 1
+    }
   }
 ]

@@ -38,5 +38,13 @@
       "order_product": 21,
       "topping": 14
     }
+  },
+  {
+    "model": "pizzaapi.pizzatopping",
+    "pk": 6,
+    "fields": {
+      "order_product": 25,
+      "topping": 10
+    }
   }
 ]
