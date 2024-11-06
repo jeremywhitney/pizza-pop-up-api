@@ -1,0 +1,65 @@
+[
+    {
+      "model": "pizzaapi.profile",
+      "pk": 1,
+      "fields": {
+        "user": 2,
+        "phone_number": "203-865-5762",
+        "address": "157 Wooster St"
+      }
+    },
+    {
+      "model": "pizzaapi.profile",
+      "pk": 2,
+      "fields": {
+        "user": 3,
+        "phone_number": "203-624-5271",
+        "address": "237 Wooster St"
+      }
+    },
+    {
+      "model": "pizzaapi.profile",
+      "pk": 3,
+      "fields": {
+        "user": 4,
+        "phone_number": "708-344-4000",
+        "address": "13 Pepperoni Ave"
+      }
+    },
+    {
+      "model": "pizzaapi.profile",
+      "pk": 4,
+      "fields": {
+        "user": 5,
+        "phone_number": "968-009-4555",
+        "address": "400 Pizza Pl"
+      }
+    },
+    {
+      "model": "pizzaapi.profile",
+      "pk": 5,
+      "fields": {
+        "user": 6,
+        "phone_number": "555-555-5555",
+        "address": "123 Demo St"
+      }
+    },
+    {
+      "model": "pizzaapi.profile",
+      "pk": 6,
+      "fields": {
+        "user": 1,
+        "phone_number": "555-555-0000",
+        "address": "1 Admin Way"
+      }
+    },
+    {
+      "model": "pizzaapi.profile",
+      "pk": 7,
+      "fields": {
+        "user": 7,
+        "phone_number": "555-555-1234",
+        "address": "789 Demo Ave"
+      }
+    }
+  ]

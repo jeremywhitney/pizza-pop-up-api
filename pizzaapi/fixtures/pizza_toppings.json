@@ -1,0 +1,50 @@
+[
+  {
+    "model": "pizzaapi.pizzatopping",
+    "pk": 1,
+    "fields": {
+      "order_product": 1,
+      "topping": 10
+    }
+  },
+  {
+    "model": "pizzaapi.pizzatopping",
+    "pk": 2,
+    "fields": {
+      "order_product": 6,
+      "topping": 11
+    }
+  },
+  {
+    "model": "pizzaapi.pizzatopping",
+    "pk": 3,
+    "fields": {
+      "order_product": 7,
+      "topping": 12
+    }
+  },
+  {
+    "model": "pizzaapi.pizzatopping",
+    "pk": 4,
+    "fields": {
+      "order_product": 14,
+      "topping": 13
+    }
+  },
+  {
+    "model": "pizzaapi.pizzatopping",
+    "pk": 5,
+    "fields": {
+      "order_product": 21,
+      "topping": 14
+    }
+  },
+  {
+    "model": "pizzaapi.pizzatopping",
+    "pk": 6,
+    "fields": {
+      "order_product": 25,
+      "topping": 10
+    }
+  }
+]

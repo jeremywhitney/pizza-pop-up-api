@@ -1,0 +1,90 @@
+[
+  {
+    "model": "pizzaapi.payment",
+    "pk": 1,
+    "fields": {
+      "merchant_name": "Visa",
+      "account_number": "4111111111111111",
+      "customer": 1,
+      "expiration_date": "2025-12-31",
+      "create_date": "2024-10-18"
+    }
+  },
+  {
+    "model": "pizzaapi.payment",
+    "pk": 2,
+    "fields": {
+      "merchant_name": "Mastercard",
+      "account_number": "5555555555554444",
+      "customer": 1,
+      "expiration_date": "2026-06-30",
+      "create_date": "2024-10-18"
+    }
+  },
+  {
+    "model": "pizzaapi.payment",
+    "pk": 3,
+    "fields": {
+      "merchant_name": "Amex",
+      "account_number": "378282246310005",
+      "customer": 2,
+      "expiration_date": "2025-09-30",
+      "create_date": "2024-10-18"
+    }
+  },
+  {
+    "model": "pizzaapi.payment",
+    "pk": 4,
+    "fields": {
+      "merchant_name": "Visa",
+      "account_number": "4012888888881881",
+      "customer": 3,
+      "expiration_date": "2026-03-31",
+      "create_date": "2024-10-18"
+    }
+  },
+  {
+    "model": "pizzaapi.payment",
+    "pk": 5,
+    "fields": {
+      "merchant_name": "Mastercard",
+      "account_number": "2223000048400011",
+      "customer": 3,
+      "expiration_date": "2025-11-30",
+      "create_date": "2024-10-18"
+    }
+  },
+  {
+    "model": "pizzaapi.payment",
+    "pk": 6,
+    "fields": {
+      "merchant_name": "Visa",
+      "account_number": "4917484589897107",
+      "customer": 4,
+      "expiration_date": "2026-08-31",
+      "create_date": "2024-10-18"
+    }
+  },
+  {
+    "model": "pizzaapi.payment",
+    "pk": 7,
+    "fields": {
+      "merchant_name": "Visa",
+      "account_number": "4532789456123456",
+      "customer": 7,
+      "expiration_date": "2026-12-31",
+      "create_date": "2024-10-18"
+    }
+  },
+  {
+    "model": "pizzaapi.payment",
+    "pk": 8,
+    "fields": {
+      "merchant_name": "Mastercard",
+      "account_number": "5105105105105100",
+      "customer": 7,
+      "expiration_date": "2026-12-31",
+      "create_date": "2024-10-18"
+    }
+  }
+]
