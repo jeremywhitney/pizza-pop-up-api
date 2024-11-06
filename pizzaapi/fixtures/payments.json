@@ -64,5 +64,27 @@
       "expiration_date": "2026-08-31",
       "create_date": "2024-10-18"
     }
+  },
+  {
+    "model": "pizzaapi.payment",
+    "pk": 7,
+    "fields": {
+      "merchant_name": "Visa",
+      "account_number": "4532789456123456",
+      "customer": 7,
+      "expiration_date": "2026-12-31",
+      "create_date": "2024-10-18"
+    }
+  },
+  {
+    "model": "pizzaapi.payment",
+    "pk": 8,
+    "fields": {
+      "merchant_name": "Mastercard",
+      "account_number": "5105105105105100",
+      "customer": 7,
+      "expiration_date": "2026-12-31",
+      "create_date": "2024-10-18"
+    }
   }
 ]

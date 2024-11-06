@@ -40,8 +40,26 @@
       "pk": 5,
       "fields": {
         "user": 6,
-        "phone_number": "908-765-4321",
-        "address": "456 Dough Dr"
+        "phone_number": "555-555-5555",
+        "address": "123 Demo St"
+      }
+    },
+    {
+      "model": "pizzaapi.profile",
+      "pk": 6,
+      "fields": {
+        "user": 1,
+        "phone_number": "555-555-0000",
+        "address": "1 Admin Way"
+      }
+    },
+    {
+      "model": "pizzaapi.profile",
+      "pk": 7,
+      "fields": {
+        "user": 7,
+        "phone_number": "555-555-1234",
+        "address": "789 Demo Ave"
       }
     }
   ]

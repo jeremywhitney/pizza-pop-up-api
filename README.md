@@ -2,10 +2,13 @@
 
 A Django REST framework-powered backend API for the Pizza Pop-Up restaurant application. This API handles menu management, order processing, and customer interactions.
 
+**Client:** [Pizza-Pop-Up Client](https://github.com/jeremywhitney/pizza-pop-up-client)
+
 ## Table of Contents
 - [System Overview](#system-overview)
 - [Data Models](#data-models)
 - [Installation](#installation)
+- [Demo Data](#demo-data)
 - [Getting Started Tutorial](#getting-started-tutorial)
 
 ## System Overview
@@ -123,6 +126,24 @@ All dependencies are managed through Pipenv:
 - autopep8
 - pylint
 - pylint-django
+
+## Demo Data
+The API comes seeded with sample data including demo accounts for testing:
+
+### Demo Staff Account
+- Username: demo_staff
+- Password: pizzatime
+- Permissions: Staff access for managing orders
+
+### Demo Customer Account  
+- Username: demo_user
+- Password: pizzatime
+- Includes: Sample orders, payment methods, etc.
+
+These accounts can be used to test API endpoints and explore the data structure. The database can be reset to this initial state using:
+```bash
+./seed_database.sh
+```
 
 ## Getting Started Tutorial
 

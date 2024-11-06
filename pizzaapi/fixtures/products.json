@@ -8,7 +8,7 @@
       "description": "sauce, olive oil, garlic, za'atar, aleppo, parm, pecorino",
       "created_date": "2024-10-18",
       "category": 2,
-      "image_path": null
+      "image_path": "products/tomato-pie.jpg"
     }
   },
   {
@@ -20,7 +20,7 @@
       "description": "sauce, olive oil, garlic, za'atar, aleppo, parm, pecorino, mozzarella",
       "created_date": "2024-10-18",
       "category": 2,
-      "image_path": null
+      "image_path": "products/mozzarella-pie.jpg"
     }
   },
   {
@@ -32,7 +32,7 @@
       "description": "olive oil, parmesan & pecorino cream, pancetta, potato, basil, rosemary oil",
       "created_date": "2024-10-18",
       "category": 2,
-      "image_path": null
+      "image_path": "products/potato-pancetta.jpg"
     }
   },
   {
@@ -44,7 +44,7 @@
       "description": "olive oil, parmesan & pecorino white sauce, hot italian sausage, preserved garlic scapes, fresh green aleppo pepper, fresh za'atar, lemon",
       "created_date": "2024-10-18",
       "category": 2,
-      "image_path": null
+      "image_path": "products/sausage-pie-jpg.jpg"
     }
   },
   {
@@ -56,7 +56,7 @@
       "description": "buffalo sauce, blue cheese, celery, carrots",
       "created_date": "2024-10-18",
       "category": 3,
-      "image_path": null
+      "image_path": "products/buffalo-wings.jpg"
     }
   },
   {
@@ -68,7 +68,7 @@
       "description": "spring crudite, schmaltz roasted bread",
       "created_date": "2024-10-18",
       "category": 3,
-      "image_path": null
+      "image_path": "products/baba-ganoush.jpg"
     }
   },
   {
@@ -80,7 +80,7 @@
       "description": "schmaltz garlic confit, parm, sauce on side",
       "created_date": "2024-10-18",
       "category": 3,
-      "image_path": null
+      "image_path": "products/garlic-bread.jpg"
     }
   },
   {
@@ -92,7 +92,7 @@
       "description": "potato chips, labneh, za'atar urfa chili crisp, giardiniera",
       "created_date": "2024-10-18",
       "category": 3,
-      "image_path": null
+      "image_path": "products/tinned-fish.jpg"
     }
   },
   {
@@ -104,7 +104,7 @@
       "description": "arugula, romaine, spring carrots, tomato, radish, cucumber, vinaigrette",
       "created_date": "2024-10-18",
       "category": 3,
-      "image_path": null
+      "image_path": "products/garden-salad.jpg"
     }
   },
   {
@@ -176,7 +176,7 @@
       "description": "mixed pickled veg from the garden: spring carrots, white icicle radish, garlic scape, french breakfast radish, garlic flower buds, 2022 pepperoncini, cherry belle radish seed pod",
       "created_date": "2024-10-18",
       "category": 4,
-      "image_path": null
+      "image_path": "products/garden-giardiniera.jpg"
     }
   },
   {
@@ -188,7 +188,7 @@
       "description": "house marinara made with fresh tomatoes from the garden",
       "created_date": "2024-10-18",
       "category": 4,
-      "image_path": null
+      "image_path": "products/marinara.jpg"
     }
   },
   {
@@ -200,7 +200,7 @@
       "description": "Flavors: Cream, Gassosa, Ginger Ale, Grape, Kola, Orange, White Birch, Root Beer",
       "created_date": "2024-10-18",
       "category": 1,
-      "image_path": null
+      "image_path": "products/foxon-park-soda.jpg"
     }
   },
   {
@@ -212,7 +212,7 @@
       "description": "12oz bottle",
       "created_date": "2024-10-18",
       "category": 1,
-      "image_path": null
+      "image_path": "products/gerst.jpg"
     }
   }
 ]

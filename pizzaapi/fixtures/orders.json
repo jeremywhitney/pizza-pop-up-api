@@ -17,7 +17,7 @@
       "customer": 1,
       "status": "PENDING",
       "created_date": "2024-10-18",
-      "payment": null,
+      "payment": 2,
       "employee": null
     }
   },
@@ -72,7 +72,7 @@
       "customer": 3,
       "status": "PENDING",
       "created_date": "2024-10-18",
-      "payment": null,
+      "payment": 4,
       "employee": null
     }
   },
@@ -94,7 +94,29 @@
       "customer": 4,
       "status": "PENDING",
       "created_date": "2024-10-18",
-      "payment": null,
+      "payment": 6,
+      "employee": null
+    }
+  },
+  {
+    "model": "pizzaapi.order",
+    "pk": 10,
+    "fields": {
+      "customer": 7,
+      "status": "COMPLETED",
+      "created_date": "2024-10-17",
+      "payment": 7,
+      "employee": 5
+    }
+  },
+  {
+    "model": "pizzaapi.order",
+    "pk": 11,
+    "fields": {
+      "customer": 7,
+      "status": "PENDING",
+      "created_date": "2024-10-18",
+      "payment": 7,
       "employee": null
     }
   }
