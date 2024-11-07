@@ -127,6 +127,29 @@ All dependencies are managed through Pipenv:
 - pylint
 - pylint-django
 
+## Deployment
+The API is deployed on DigitalOcean App Platform. Key deployment configurations:
+
+### Build Command
+```bash
+python manage.py makemigrations pizzaapi
+python manage.py migrate
+```
+
+### Run Command
+```bash
+python3 manage.py loaddata categories users tokens profiles employee_profiles payments products orders order_products pizza_toppings && gunicorn --worker-tmp-dir /dev/shm pizzaproject.wsgi
+```
+
+### Environment Variables
+Required environment variables for production:
+```env
+DJANGO_SECRET_KEY=your_secret_key
+DEBUG=False
+DJANGO_ALLOWED_HOSTS=your-api-domain.ondigitalocean.app
+DEVELOPMENT_MODE=False
+```
+
 ## Demo Data
 The API comes seeded with sample data including demo accounts for testing:
 
